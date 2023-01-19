@@ -1,9 +1,11 @@
-package nw2s
+package application
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
+@ComponentScan("controllers")
 class Application
 
 fun main(args: Array<String>)
