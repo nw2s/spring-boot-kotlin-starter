@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="ConsoleJSONAppender" target="SYSTEM_OUT">
+            <JsonLayout complete="false" compact="true" eventEol="true" properties="false"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="config" level="debug" />
+        <Logger name="controllers" level="debug" />
+        <Logger name="tasks" level="debug" />
+        <Logger name="listeners" level="debug" />
+        <Logger name="services" level="debug" />
+        <Logger name="springfox" level="error" />
+        <Root level="warn">
+            <AppenderRef ref="ConsoleJSONAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>
