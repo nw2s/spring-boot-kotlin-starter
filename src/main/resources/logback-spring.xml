@@ -15,9 +15,18 @@
         </encoder>
     </appender>
 
+    <appender name="async-json" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="json" />
+        <discardingThreshold>10</discardingThreshold>
+        <queueSize>512</queueSize>
+        <neverBlock>false</neverBlock>
+        <includeCallerData>false</includeCallerData>
+    </appender>
+
+
     <springProfile name="local">
         <root level="WARN">
-            <appender-ref ref="json"/>
+            <appender-ref ref="async-json"/>
         </root>
         <logger name="application" level="DEBUG"/>
         <logger name="controllers" level="DEBUG"/>
