@@ -21,3 +21,5 @@ build and run cases, as well as building Docker images.
 
 
 Swagger UI is available at http://localhost:8080/swagger-ui/index.html
+
+Test endpoint is available at http://localhost:8080/test/isup

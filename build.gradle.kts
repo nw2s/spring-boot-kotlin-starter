@@ -18,11 +18,11 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter:3.0.1")
+	implementation("org.springframework.boot:spring-boot-starter-web:3.0.1")
 
-	implementation("org.jetbrains.kotlin:kotlin-reflect")
-	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
+	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0")
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 
 	implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
@@ -30,7 +30,7 @@ dependencies {
 
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
 
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.boot:spring-boot-starter-test:3.0.1")
 }
 
 tasks.withType<KotlinCompile> {
