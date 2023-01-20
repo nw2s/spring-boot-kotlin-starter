@@ -6,9 +6,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
-@ComponentScan("controllers", "config")
+@ComponentScan("controllers", "config", "org.springdoc")
 class Application : SpringBootServletInitializer()
-
 
 fun main(args: Array<String>)
 {

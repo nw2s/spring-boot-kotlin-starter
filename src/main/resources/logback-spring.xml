@@ -33,4 +33,13 @@
         <logger name="config" level="DEBUG"/>
     </springProfile>
 
+    <springProfile name="dev">
+        <root level="WARN">
+            <appender-ref ref="async-json"/>
+        </root>
+        <logger name="application" level="DEBUG"/>
+        <logger name="controllers" level="DEBUG"/>
+        <logger name="config" level="DEBUG"/>
+    </springProfile>
+
 </configuration>
