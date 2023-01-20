@@ -1,4 +1,6 @@
+import org.gradle.kotlin.dsl.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
 	id("org.springframework.boot") version "3.0.1"
@@ -15,17 +17,9 @@ repositories {
 	mavenCentral()
 }
 
-configurations.all {
-	exclude(group = "org.springframework.boot", module = "spring-boot-starter-logging")
-	exclude(group = "ch.qos.logback", module = "logback-classic")
-	exclude(group = "org.apache.logging.log4j", module = "log4j-to-slf4j")
-}
-
-
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("org.springframework.boot:spring-boot-starter-log4j2")
 
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -43,4 +37,24 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.withType<BootJar>().configureEach {
+	launchScript()
+}
+
+
+tasks.jar {
+	manifest {
+		attributes["Main-Class"] = "application.ApplicationKt"
+	}
+
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	from(sourceSets.main.get().output)
+
+	dependsOn(configurations.runtimeClasspath)
+	from({
+		configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+	})
 }
