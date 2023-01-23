@@ -31,4 +31,4 @@ class CdkStack(Stack):
             memory_limit_mib=512,
             public_load_balancer=True,
             task_image_options=ecs_patterns.ApplicationLoadBalancedTaskImageOptions(
-                image=ecs.ContainerImage.from_registry("amazon/amazon-ecs-sample")))
+                image=ecs.ContainerImage.from_registry("688789537087.dkr.ecr.us-east-1.amazonaws.com/sbk-repository:latest")))

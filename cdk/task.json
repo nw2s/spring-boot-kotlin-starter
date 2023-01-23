@@ -1,0 +1,24 @@
+{
+  "family": "sbktesting",
+  "networkMode": "awsvpc",
+  "containerDefinitions": [
+    {
+      "name": "sbk-app",
+      "image": "688789537087.dkr.ecr.us-east-1.amazonaws.com/sbk-repository:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::688789537087:role/OrganizationAccountAccessRole",
+  "taskRoleArn": "arn:aws:iam::688789537087:role/OrganizationAccountAccessRole"
+}
